@@ -1,0 +1,132 @@
+body {
+    font-family: arial;
+    font-size: 15px;
+    line-height: 1.6em;
+}
+
+li {
+    list-style: none;
+}
+
+h1,
+h2 {
+    margin: 0 0 2rem 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+label {
+    display: inline-block;
+    width: 180px;
+}
+
+input {
+    padding: 0.5rem 1.5rem;
+}
+
+input[type='submit'] {
+    background-color: #B22222;
+    border: 1px solid #B22222;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 100px;
+    transition-duration: .3s;
+    cursor: pointer;
+}
+
+input[type='submit']:hover {
+    background-color: #CD5C5C;
+    border: 1px solid #CD5C5C;
+}
+
+input[type='text'] {
+    width: 97%;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px #ccc solid;
+}
+
+input[type='number'] {
+    width: 50px;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px #ccc solid;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-aroud;
+    align-items: center;
+}
+
+.buttons a {
+    margin: 0 0.5rem;
+}
+
+header {
+    background-color: #222222;
+    color: white;
+}
+
+a.add {
+    display: inline-block;
+    background-color: #222222;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+}
+
+footer {
+    border-top: 3px #272726 solid;
+    background: #3A3A36;
+    color: #BBBBB9;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+main {
+    padding-bottom: 20px;
+    background-color: #fff;
+    color: #222222;
+    border-bottom: 1px solid #222222;
+}
+
+a.start {
+    display: inline-block;
+    color: #000000;
+    color: #fff;
+    background: #B22222;
+    padding: 0.5rem 1.5rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    transition-duration: .3s;
+}
+
+a.start:hover {
+    background: #CD5C5C;
+}
+
+.current {
+    display: inline-block;
+    background-color: #222222;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+}
+
+@media only screen and (max-width: 960px) {
+    .container {
+        width: 60%;
+    }
+}
