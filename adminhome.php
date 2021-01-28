@@ -18,9 +18,9 @@ if (isset($_SESSION['admin'])) {
 			<div class="container">
 				<h1>Опросник PHP</h1>
 				<div class="buttons">
-					<a href="index.php" class="start">Главная</a>
-					<a href="add.php" class="start">Новый опрос</a>
-					<a href="allquestions.php" class="start">Все вопросы</a>
+				<a href="index.php" class="start">Главная</a>
+					<a href="add_quiz.php" class="start">Новая сессия</a>
+					<a href="allquiz.php" class="start">Все сесии</a>
 					<a href="players.php" class="start">Участники</a>
 					<a href="exit.php" class="start">Выйти</a>
 				</div>

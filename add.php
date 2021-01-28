@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php include "connection.php";
 if (isset($_SESSION['admin'])) {
-
+$quid = $_GET['id'];
 if(isset($_POST['submit'])) {
 	$question =htmlentities(mysqli_real_escape_string($conn , $_POST['question']));
 	$choice1 = htmlentities(mysqli_real_escape_string($conn , $_POST['choice1']));
@@ -15,7 +15,7 @@ if(isset($_POST['submit'])) {
 	$runcheck = mysqli_query($conn , $checkqsn) or die(mysqli_error($conn));
 	$qno = mysqli_num_rows($runcheck) + 1;
 
-	$query = "INSERT INTO questions(qno, question , ans1, ans2, ans3, ans4, correct_answer) VALUES ('$qno' , '$question' , '$choice1' , '$choice2' , '$choice3' , '$choice4' , '$correct_answer') " ;
+	$query = "INSERT INTO questions(qno, id, question , ans1, ans2, ans3, ans4, correct_answer) VALUES ('$qno' , '$quid', '$question' , '$choice1' , '$choice2' , '$choice3' , '$choice4' , '$correct_answer') " ;
 	$run = mysqli_query($conn , $query) or die(mysqli_error($conn));
 	if (mysqli_affected_rows($conn) > 0 ) {
 		echo "<script>alert('Question successfully added'); </script> " ;
@@ -40,9 +40,9 @@ if(isset($_POST['submit'])) {
 			<div class="container">
 				<h1>Опросник PHP</h1>
 				<div class="buttons">
-					<a href="index.php" class="start">Главная</a>
-					<a href="add.php" class="start">Новый опрос</a>
-					<a href="allquestions.php" class="start">Все вопросы</a>
+				<a href="index.php" class="start">Главная</a>
+					<a href="add_quiz.php" class="start">Новая сессия</a>
+					<a href="allquiz.php" class="start">Все сесии</a>
 					<a href="players.php" class="start">Участники</a>
 					<a href="exit.php" class="start">Выйти</a>
 				</div>

@@ -4,7 +4,7 @@ include "connection.php";
 ?>
 <?php 
 if (isset($_SESSION['id'])) {
-	header("location: home.php");
+	header("location: quizs.php");
 }
 ?>
 <?php
@@ -21,7 +21,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			$id = $row['id'];
 			$_SESSION['id'] = $id;
 			$_SESSION['email'] = $row['email'];
-		header("location: home.php");
+		header("location: quizs.php");
 	}
 	else {
 		$played_on = date('Y-m-d H:i:s');
@@ -35,7 +35,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			$id = $row['id'];
 			$_SESSION['id'] = $id;
 			$_SESSION['email'] = $row['email'];
-			header("location: home.php");
+			header("location: quizs.php");
 		}
 }
 	else {
@@ -62,14 +62,14 @@ else {
 			<div class="container">
 				<h1>Опросник PHP</h1>
 				<div class="buttons">
-					<a href="index.php" class="start">Главная</a>
+					<a href="index.html" class="start">Главная</a>
 					<a href="admin.php" class="start">Админ</a>
 				</div>
 			</div>
 		</header>
 		<main>
 		<div class="container">
-				<h2>Для начала игры, введите ваш E'mail</h2>
+				<h2>Для начала прохождения опроса, введите ваш E'mail</h2>
 				<form method="POST" action="">
 				<input type="email" name="email" required >
 				<input type="submit" name="submit" value="Начать опрос">

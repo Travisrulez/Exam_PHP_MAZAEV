@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    width: 10vw;
+    height: 3vh;
+}
+
+span::selection {
+    color: rgb(248, 85, 85);
+}
+
+a::selection {
+    color: rgb(248, 85, 85);
+}
+
+h1::selection {
+    color: rgb(248, 85, 85);
+}
+
+.mainpicture {
+    background-image: linear-gradient(to top, rgba(7, 7, 8, 0.842), rgba(7, 7, 6, 0.4)), url(img/oprosnik.jpg);
+    background-size: cover;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    color: white;
+    font-family: 'Krona One', sans-serif;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7vh;
+    text-align: center;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    border-bottom: 2px solid black;
+}
+
+.text {
+    margin-top: 5vh;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.cols {
+    margin-top: 10vh;
+}
+
+.none {
+    width: 40vw;
+}
+
+@media screen and (max-width: 600px) {
+    .cols {
+        display: flex;
+        flex-direction: column;
+    }
+    img {
+        width: 100%;
+    }
+    .logo {
+        width: 30vw;
+    }
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    box-sizing: border-box;
+    padding-top: 190px;
+    height: 300px;
+}
+
+.elevator {
+    text-align: center;
+    cursor: pointer;
+    width: 140px;
+    margin: auto;
+}
+
+.elevator:hover {
+    opacity: 0.7;
+}
+
+.elevator svg {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.copy {
+    display: none !important;
+}

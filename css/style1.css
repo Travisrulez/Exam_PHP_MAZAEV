@@ -6,6 +6,18 @@ body {
     margin: 0;
 }
 
+span::selection {
+    color: rgb(248, 85, 85);
+}
+
+a::selection {
+    color: rgb(248, 85, 85);
+}
+
+h1::selection {
+    color: rgb(248, 85, 85);
+}
+
 table {
     margin: auto;
     font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
@@ -86,4 +98,8 @@ table td {
 
 .data-table tbody td:empty {
     background-color: #ffcccc;
+}
+
+.copy {
+    display: none !important;
 }

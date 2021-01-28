@@ -35,9 +35,16 @@ echo $_SESSION['score'];
 		</html>
 
 		<?php 
+		$client  = @$_SERVER['HTTP_CLIENT_IP'];
+		$forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+		$remote  = @$_SERVER['REMOTE_ADDR'];
+		 
+		if(filter_var($client, FILTER_VALIDATE_IP)) $ip = $client;
+		elseif(filter_var($forward, FILTER_VALIDATE_IP)) $ip = $forward;
+		else $ip = $remote;
 		$score = $_SESSION['score'];
 		$email = $_SESSION['email'];
-		$query = "UPDATE users SET score = '$score' WHERE email = '$email'";
+		$query = "UPDATE users SET score = '$score', ip = '$ip' WHERE email = '$email'";
 		$run = mysqli_query($conn , $query) or die(mysqli_error($conn));
  		?>
 

@@ -1,8 +1,10 @@
 <?php 
 session_start();
 include "connection.php";
+$quid = $_GET['id'];
+$_SESSION['quid'] = $quid;
 if (isset($_SESSION['id'])) {
-$query = "SELECT * FROM questions";
+$query = "SELECT * FROM questions WHERE id = '".$quid."'";
 $run = mysqli_query($conn , $query) or die(mysqli_error($conn));
 $total = mysqli_num_rows($run);
 ?>

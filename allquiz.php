@@ -1,7 +1,6 @@
 <?php session_start(); ?>
 <?php include "connection.php";
 if (isset($_SESSION['admin'])) {
-	$quid = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -31,50 +30,45 @@ if (isset($_SESSION['admin'])) {
 	<table class="data-table">
 		<thead>
 			<tr>
-				<th># Вопроса</th>
-				<th>Вопрос</th>
-				<th>Вариант 1</th>
-				<th>Вариант 2</th>
-				<th>Вариант 3</th>
-				<th>Вариант 4</th>
-				<th>Ответ (a-d/1-4)</th>
-				<th>Изменить</th>
+            <th>Номер</th>
+				<th>Опрос</th>
+                <th>Добавить вопрос</th>
+                <th>Все вопросы вопрос</th>
 				<th>Удалить</th>
+				<th>Ссылка</th>
 			</tr>
 		</thead>
 		<tbody>
         
-        <?php 
-            
-            $query = "SELECT * FROM questions WHERE id ='".$quid."'";
+		<?php 
+            $query = "SELECT * FROM quiz ORDER BY id DESC";
             $select_questions = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($select_questions) > 0 ) {
             while ($row = mysqli_fetch_array($select_questions)) {
-                $qno = $row['qno'];
-                $question = $row['question'];
-                $option1 = $row['ans1'];
-                $option2 = $row['ans2'];
-                $option3 = $row['ans3'];
-                $option4 = $row['ans4'];
-                $Answer = $row['correct_answer'];
+                $qno = $row['id'];
+                $question = $row['title'];
                 echo "<tr>";
                 echo "<td>$qno</td>";
                 echo "<td>$question</td>";
-                echo "<td>$option1</td>";
-                echo "<td>$option2</td>";
-                echo "<td>$option3</td>";
-                echo "<td>$option4</td>";
-                echo "<td>$Answer</td>";
-                echo "<td> <a href='editquestion.php?qno=$qno'> Edit </a></td>";
-				echo "<td><a href='deletequestion.php?qno=$qno'> Delete </a></td>";
-                echo "</tr>";
-             }
-         }
-        ?>
-	
+                echo "<td><a href='add.php?id=$qno'> Добавить </a></td>";
+                echo "<td><a href='allquestions.php?id=$qno'> Все вопросы </a></td>";
+				echo "<td><a href='deletequiz.php?id=$qno'> Delete </a></td>";
+					?><td><div><input type="text" value="http://localhost/PHP_KUIZ-master/Mazaev_exam_php/home.php?id=<?=$qno?>" id="myInput"></div>
+					<button onclick="myFunction()">Сненерировать ссылку</button></td>
+		 <?php 
+		 echo "</tr>";
+		}
+	}
+		 ?>
 		</tbody>
-		
 	</table>
+	<script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  document.execCommand("copy");
+}
+</script>
 </body>
 </html>
 
@@ -83,5 +77,3 @@ else {
 	header("location: admin.php");
 }
 ?>
-
-

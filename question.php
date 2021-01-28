@@ -2,18 +2,19 @@
 session_start();
 include "connection.php";
 if (isset($_SESSION['id'])) {
-	
+	$quid = $_SESSION['quid'];
 	if (isset($_GET['n']) && is_numeric($_GET['n'])) {
 	        $qno = $_GET['n'];
 	        if ($qno == 1) {
-	        	$_SESSION['quiz'] = 1;
+				$_SESSION['quiz'] = 1;
+				
 	        }
 	        }
 	        else {
 	        	header('location: question.php?n='.$_SESSION['quiz']);
 	        } 
 	        if (isset($_SESSION['quiz']) && $_SESSION['quiz'] == $qno) {
-			$query = "SELECT * FROM questions WHERE qno = '$qno'" ;
+			$query = "SELECT * FROM questions WHERE qno = '".$qno."'" ;
 			$run = mysqli_query($conn , $query) or die(mysqli_error($conn));
 			if (mysqli_num_rows($run) > 0) {
 				$row = mysqli_fetch_array($run);
@@ -25,7 +26,7 @@ if (isset($_SESSION['id'])) {
                  $ans4 = $row['ans4'];
                  $correct_answer = $row['correct_answer'];
                  $_SESSION['quiz'] = $qno;
-                 $checkqsn = "SELECT * FROM questions" ;
+                 $checkqsn = "SELECT * FROM questions WHERE id = '".$quid."'" ;
                  $runcheck = mysqli_query($conn , $checkqsn) or die(mysqli_error($conn));
                  $countqsn = mysqli_num_rows($runcheck);
                  $time = time();
@@ -78,7 +79,7 @@ $totalqn = mysqli_num_rows($run);
 					</ul>
 					<input type="submit" value="Подтвердить"> 
 					<input type="hidden" name="number" value="<?php echo $qno;?>">
-					<a href="results.php" class="start" style="background-color: #222">Закончить</a>
+					<a href="quizs.php" class="start" style="background-color: #222">Закончить</a>
 				</form>
 			</div>
 		</main>
